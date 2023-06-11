@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- <script src="script.js"></script> -->
+    <link rel="stylesheet" href="dash-Style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+
+</head>
+<body>
+    <nav>
+        <div class="logo"><a href="Main.html"> Learn!t.</a></div>
+        <div class="navbar">
+            <div class="navbtn">
+                <a href="Main.html">Home</a>
+            </div>
+            <div class="nav-account">
+                <span class="material-symbols-rounded">person</span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="student-dashboard">
+        <div class="stud-container">
+            <div class="profile-card">
+                <img src="./assets/profile.png" alt="Profile Picture">
+                <div class="profile">
+                  <h1 class="stud-name"></h1>
+                  <p>Student ID: 12345</p>
+                </div>
+            </div>
+    
+            <div class="stud-cards">
+                <div class="card">
+                  <h3>Assignment Submission</h3>
+                  <p class="ass-status">Status: Assignment Pending</p>
+                  <form class="assignment-form">
+                    <input type="file" id="assignment-file" name="assignment-file" accept=".pdf,.doc,.docx">
+                    <label for="assignment-file" class="ass-label">Upload Assignment</label>
+                  </form>
+                </div>
+                
+                <div class="card">
+                  <h3>Current Progress</h3>
+                  <p>Your progress: <span style="font-weight: bold; font-size: 20px;">80%</span><br>in Web Development</p>
+                  <!-- Additional content or progress bar can be added here -->
+                </div>
+                
+                <div class="card">
+                  <h3>Current Rank</h3>
+                  <p>Your rank: <span style="font-weight: bold; font-size: 20px;">754</span></p>
+                  <!-- Additional content or leaderboard can be added here -->
+                </div>
+              </div>
+
+        </div>
+    </section>
+
+    <script>
+        document.querySelector(".stud-name").innerHTML = localStorage.getItem("name");
+        document.querySelector("#assignment-file").addEventListener("change", ()=>{
+            console.log("submit");
+            document.querySelector(".ass-status").innerHTML = "Status: Assignment Submitted";
+            document.querySelector(".ass-status").style.color = "green";
+            document.querySelector(".ass-label").style.display = "none";
+        })
+    </script>
+</body>
+</html>
